@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Harshaa's Cafe - Relax, Sip, Enjoy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for uniqueness */
+        .hero-bg {
+            background-image: url('images/jakub-dziubak-XtUd5SiX464-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .slide-in {
+            animation: slideIn 1s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-red-600">Harshaa's Cafe</div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="hover:text-red-600 transition">Home</a></li>
+                <li><a href="#about" class="hover:text-red-600 transition">About</a></li>
+                <li><a href="#menu" class="hover:text-red-600 transition">Menu</a></li>
+                <li><a href="#contact" class="hover:text-red-600 transition">Contact</a></li>
+            </ul>
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <ul class="px-4 py-2 space-y-2">
+                <li><a href="#home" class="block hover:text-red-600">Home</a></li>
+                <li><a href="#about" class="block hover:text-red-600">About</a></li>
+                <li><a href="#menu" class="block hover:text-red-600">Menu</a></li>
+                <li><a href="#contact" class="block hover:text-red-600">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-white relative">
+        <div class="text-center fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Welcome to Harshaa's Cafe</h1>
+            <p class="text-lg md:text-xl mb-8">Relax, Sip, and Enjoy Your Favorite Brews</p>
+            <button class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full text-lg transition">Order Now</button>
+        </div>
+        <div id="slideshow" class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="slide slide-in" id="slide1">
+                <img src="images/jakub-dziubak-XtUd5SiX464-unsplash.jpg" alt="Comfortable seating area in a cafe with plush armchairs and soft lighting" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center slide-in">
+            <h2 class="text-4xl font-bold mb-8 text-gray-800">About Us</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-8">
+                At Harshaa's Cafe, we believe in creating a peaceful escape from the hustle of daily life. Our carefully selected coffee beans are sourced from the finest regions, ensuring every sip is a moment of bliss. Whether you're seeking a quiet read or a lively chat, our cafe is your serene haven.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow">
+                    <img src="images/brigitte-tohm-yRH0JI2S2KA-unsplash.jpg" alt="Cafe kitchen with coffee brewing machine and shelves of coffee beans" class="w-full h-48 object-cover rounded mb-4">
+                    <h3 class="text-2xl font-semibold mb-4">Fresh Brews Daily</h3>
+                    <p>Every morning, we fresh-brew our selection of artisanal coffees using the latest techniques.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow">
+                    <img src="images/jakub-dziubak-XtUd5SiX464-unsplash.jpg" alt="Comfortable seating area in a cafe with plush armchairs and soft lighting" class="w-full h-48 object-cover rounded mb-4">
+                    <h3 class="text-2xl font-semibold mb-4">Cozy Atmosphere</h3>
+                    <p>Our space is designed for comfort, with ample seating and a relaxed vibe perfect for any occasion.</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow">
+                    <img src="images/clay-banks-_wkd7XBRfU4-unsplash.jpg" alt="Display counter showcasing freshly baked pastries like croissants and muffins" class="w-full h-48 object-cover rounded mb-4">
+                    <h3 class="text-2xl font-semibold mb-4">Homemade Treats</h3>
+                    <p>Indulge in our delicious homemade pastries and snacks, baked fresh every day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Our Menu</h2>
+            <div class="flex justify-center mb-8">
+                <button class="filter-btn bg-red-600 text-white px-4 py-2 rounded mr-4 active" data-filter="all">All</button>
+                <button class="filter-btn bg-gray-300 text-gray-800 px-4 py-2 rounded mr-4" data-filter="coffee">Coffee</button>
+                <button class="filter-btn bg-gray-300 text-gray-800 px-4 py-2 rounded mr-4" data-filter="pastry">Pastry</button>
+                <button class="filter-btn bg-gray-300 text-gray-800 px-4 py-2 rounded" data-filter="sandwich">Sandwiches</button>
+            </div>
+            <div id="menu-items" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu items dynamically populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Contact Us</h2>
+            <div class="max-w-2xl mx-auto">
+                <form id="contact-form" class="bg-gray-100 p-8 rounded-lg shadow">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 mb-2">Name</label>
+                        <input type="text" id="name" class="w-full px-3 py-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" class="w-full px-3 py-2 border rounded" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" rows="5" class="w-full px-3 py-2 border rounded" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-full w-full">Send Message</button>
+                </form>
+                <div id="form-message" class="mt-4 text-center"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Harshaa's Cafe</h3>
+                    <p>Your serene escape in the city.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Hours</h3>
+                    <p>Mon-Fri: 7am - 9pm<br>Sat-Sun: 8am - 10pm</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <p>Social media</p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <p>&copy; 2025 Harshaa's Cafe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Slideshow logic
+        let slideIndex = 0;
+        const slides = [
+            
+            'images/mikesh-kaos-dUV3oohJzE8-unsplash.jpg',
+            'images/clem-onojeghuo-NT3qP7WbmzE-unsplash.jpg'
+        ];
+        setInterval(() => {
+            slideIndex = (slideIndex + 1) % slides.length;
+            document.getElementById('slide1').querySelector('img').src = slides[slideIndex];
+        }, 5000);
+
+        // Menu items data
+        const menuItems = [
+            { name: 'Classic Espresso', price: '$3.50', category: 'coffee', image: 'images/nathan-dumlao-Y3AqmbmtLQI-unsplash.jpg' },
+            { name: 'Latte Macchiato', price: '$4.50', category: 'coffee', image: 'images/nathan-dumlao-r-KfktlyBL0-unsplash.jpg' },
+            { name: 'Blueberry Muffin', price: '$3.00', category: 'pastry', image: 'images/nathan-dumlao-XOhI_kW_TaM-unsplash.jpg' },
+            { name: 'Croissant', price: '$2.50', category: 'pastry', image: 'images/nathan-dumlao-nBJHO6wmRWw-unsplash.jpg' },
+            { name: 'Club Sandwich', price: '$8.00', category: 'sandwich', image: 'images/nathan-dumlao-zTZRZV86GhE-unsplash.jpg' },
+            { name: 'Grilled Cheese', price: '$6.50', category: 'sandwich', image: 'images/milo-miloezger-rKYRJu0n06Y-unsplash.jpg' }
+        ];
+
+        // Render menu items
+        const menuContainer = document.getElementById('menu-items');
+        function renderMenu(category = 'all') {
+            menuContainer.innerHTML = '';
+            menuItems.forEach(item => {
+                if (category === 'all' || item.category === category) {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'bg-white p-6 rounded-lg shadow fade-in';
+                    itemDiv.innerHTML = `
+                        <img src="${item.image}" alt="${item.name} served in a cozy café setting with garnishes" class="w-full h-48 object-cover rounded mb-4">
+                        <h3 class="text-xl font-semibold mb-2">${item.name}</h3>
+                        <p class="text-gray-600 mb-4">${item.price}</p>
+                        <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">Add to Order</button>
+                    `;
+                    menuContainer.appendChild(itemDiv);
+                }
+            });
+        }
+        renderMenu();
+
+        // Filter buttons logic
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-red-600', 'text-white');
+                    b.classList.add('bg-gray-300', 'text-gray-800');
+                });
+                this.classList.add('active', 'bg-red-600', 'text-white');
+                this.classList.remove('bg-gray-300', 'text-gray-800');
+                renderMenu(this.dataset.filter);
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            if (name && email && message) {
+                document.getElementById('form-message').innerText = 'Thank you for your message! We will get back to you soon.';
+                document.getElementById('form-message').className = 'mt-4 text-green-600 text-center';
+                this.reset();
+            } else {
+                document.getElementById('form-message').innerText = 'Please fill in all fields.';
+                document.getElementById('form-message').className = 'mt-4 text-red-600 text-center';
+            }
+        });
+    </script>
+</body>
+</html>
